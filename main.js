@@ -1,9 +1,3 @@
-/* ==========================================
-   LIV ZONE - JavaScript Functionality
-   Tekwill Junior Ambassadors Competition
-   ========================================== */
-
-// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     
     // ===== MOBILE NAVIGATION =====
@@ -14,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
             
-            // Animate hamburger icon
             const hamburger = this.querySelector('.hamburger');
             if (navMenu.classList.contains('active')) {
                 hamburger.style.transform = 'rotate(45deg)';
@@ -25,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Close menu when clicking on a link
         const navLinks = navMenu.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
@@ -36,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) {
                 navMenu.classList.remove('active');
@@ -87,21 +78,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (filterButtons.length > 0 && productCategories.length > 0) {
         filterButtons.forEach(button => {
             button.addEventListener('click', function() {
-                // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 
-                // Add active class to clicked button
                 this.classList.add('active');
                 
-                // Get selected category
                 const category = this.getAttribute('data-category');
                 
-                // Filter products
                 productCategories.forEach(cat => {
                     const catType = cat.getAttribute('data-category');
                     if (category === 'all' || category === catType) {
                         cat.style.display = 'block';
-                        // Animate appearance
                         cat.style.animation = 'fadeIn 0.5s ease-out';
                     } else {
                         cat.style.display = 'none';
@@ -118,32 +104,25 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form elements
             const formContent = document.getElementById('formContent');
             const formSuccess = document.getElementById('formSuccess');
             const submitButton = this.querySelector('button[type="submit"]');
             const btnText = submitButton.querySelector('.btn-text');
             const btnLoading = submitButton.querySelector('.btn-loading');
             
-            // Show loading state
             btnText.style.display = 'none';
             btnLoading.style.display = 'inline';
             submitButton.disabled = true;
             
-            // Simulate form submission (in real app, this would be an AJAX call)
             setTimeout(function() {
-                // Hide form content
                 formContent.style.display = 'none';
                 
-                // Show success message
                 formSuccess.style.display = 'block';
                 
-                // Reset button state
                 btnText.style.display = 'inline';
                 btnLoading.style.display = 'none';
                 submitButton.disabled = false;
                 
-                // Reset form after 3 seconds
                 setTimeout(function() {
                     contactForm.reset();
                     formContent.style.display = 'block';
@@ -152,7 +131,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 1500);
         });
         
-        // Form validation
         const formInputs = contactForm.querySelectorAll('input, textarea, select');
         formInputs.forEach(input => {
             input.addEventListener('blur', function() {
@@ -177,8 +155,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (statNumbers.length > 0) {
         const animateCounter = (element) => {
             const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000; // 2 seconds
-            const increment = target / (duration / 16); // 60fps
+            const duration = 2000; 
+            const increment = target / (duration / 16); 
             let current = 0;
             
             const updateCounter = () => {
@@ -194,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
             updateCounter();
         };
         
-        // Intersection Observer for counter animation
         const observerOptions = {
             threshold: 0.5,
             rootMargin: '0px'
@@ -249,7 +226,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ===== NOTIFICATION SYSTEM =====
     function showNotification(message) {
-        // Create notification element
         const notification = document.createElement('div');
         notification.style.cssText = `
             position: fixed;
@@ -265,10 +241,8 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         notification.textContent = message;
         
-        // Add to page
         document.body.appendChild(notification);
         
-        // Remove after 3 seconds
         setTimeout(() => {
             notification.style.animation = 'slideOut 0.3s ease-out';
             setTimeout(() => {
@@ -277,7 +251,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
     
-    // Add animation keyframes
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideIn {
@@ -323,7 +296,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ===== SCROLL TO TOP BUTTON =====
-    // Create an accessible scroll-to-top button with a class
     const scrollButton = document.createElement('button');
     scrollButton.className = 'scroll-top';
     scrollButton.setAttribute('aria-label', 'Scroll to top');
@@ -335,7 +307,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.body.appendChild(scrollButton);
 
-    // Toggle visibility via class for smoother transitions
     const toggleScrollButton = () => {
         if (window.pageYOffset > 300) {
             scrollButton.classList.add('visible');
@@ -345,10 +316,8 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     window.addEventListener('scroll', toggleScrollButton);
-    // initialize state
     toggleScrollButton();
 
-    // Scroll to top on click (keyboard accessible)
     scrollButton.addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -362,7 +331,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ===== KEYBOARD NAVIGATION =====
     document.addEventListener('keydown', function(e) {
-        // ESC key closes mobile menu
         if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
             navMenu.classList.remove('active');
             const hamburger = navToggle.querySelector('.hamburger');
@@ -372,7 +340,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ===== PERFORMANCE OPTIMIZATION =====
-    // Debounce function for scroll events
     function debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
@@ -385,9 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
     
-    // Apply debounce to scroll handlers
     const debouncedScroll = debounce(() => {
-        // Additional scroll handling if needed
     }, 100);
     
     window.addEventListener('scroll', debouncedScroll);

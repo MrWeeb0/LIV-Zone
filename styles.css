@@ -1,9 +1,3 @@
-/* ==========================================
-   LIV ZONE - Website Styling
-   Tekwill Junior Ambassadors Competition
-   ========================================== */
-
-/* === RESET & BASE === */
 * {
     margin: 0;
     padding: 0;
@@ -20,12 +14,12 @@
     --bg-light: #071018; /* subtle section background */
     --bg-dark: #0b0f12; /* page background */
     --surface: #0f1722; /* card / surface background */
-    --accent-foreground: #0b0b0b; /* high-contrast text on accent buttons */
+    --accent-foreground: #0b0b0b; 
     --white: #ffffff;
     --shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
     --shadow-lg: 0 14px 40px rgba(0, 0, 0, 0.65);
     
-    /* Typography */
+
     --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -1268,7 +1262,6 @@ section {
     box-shadow: 0 14px 40px rgba(0,0,0,0.65);
 }
 
-/* small screens: reduce size slightly */
 @media (max-width: 480px) {
     .scroll-top { width: 48px; height: 48px; right: 18px; bottom: 18px; }
 }
