@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meniul LIV ZONE - Burgeri, shawarma, kebab, plăcinte, croissante și băuturi. Prețuri accesibile și gusturi autentice.">
+    <meta name="keywords" content="meniu fast food, burgeri Moldova, shawarma, kebab, plăcinte, croissante, băuturi, cafea, prețuri LIV ZONE">
+    <title>Produse - LIV ZONE | Meniul Nostru</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.jpg" alt="LIV ZONE Logo" class="logo-img">
+                </a>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Acasă</a></li>
+                    <li><a href="products.html" class="nav-link active">Produse</a></li>
+                    <li><a href="about.html" class="nav-link">Despre Noi</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Meniul Nostru</h1>
+            <p class="page-subtitle">Descoperă varietatea de preparate delicioase</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <!-- Category Filter -->
+            <div class="category-filter">
+                <button class="filter-btn active" data-category="all">Toate</button>
+                <button class="filter-btn" data-category="fast-food">Fast Food</button>
+                <button class="filter-btn" data-category="bauturi">Băuturi</button>
+            </div>
+
+            <!-- Fast Food Category -->
+            <div class="product-category" data-category="fast-food" id="fast-food">
+                <h2 class="category-title">Fast Food</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/burger.jpg" alt="Burger">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Burger</h3>
+                            <p class="product-description">Chifla burger, frunză de salată, carne, cașcaval, maioneză, sos special. (305g)</p>
+                            <div class="product-footer">
+                                <span class="product-price">65 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/shawarma.jpg" alt="Kebab Mare">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Kebab Mare</h3>
+                            <p class="product-description">Lavaș, carne de pui, cartofi pai, varză cu mărar, roșii, cașcaval murati, sos roz și sos clasic. (450g)</p>
+                            <div class="product-footer">
+                                <span class="product-price">80 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/kebab mic.jpg" alt="Kebab Mic">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Kebab Mic</h3>
+                            <p class="product-description">Lavaș, carne de pui, cartofi pai, varză cu mărar, roșii, cașcaval murati, sos roz și sos clasic. (250-300g)</p>
+                            <div class="product-footer">
+                                <span class="product-price">50 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/sandwich kebab.jpg" alt="Sandwich Kebab">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Sandwich Kebab</h3>
+                            <p class="product-description">Chifla, carne de pui, cartofi pai, roșii, cașcaval murati, sos special. (350g)</p>
+                            <div class="product-footer">
+                                <span class="product-price">65 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/hotdog.jpg" alt="Hot Dog" style="object-position: center 60%;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Hot Dog</h3>
+                            <p class="product-description">Chifla hot dog, cărnaț, crenvurști de pui, sos ketchup și maioneză. (220g)</p>
+                            <div class="product-footer">
+                                <span class="product-price">40 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/nuggets de pui.jpg" alt="Nuggets de Pui">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Nuggets de Pui</h3>
+                            <p class="product-description">Bucăți crocante de piept de pui. (100g)</p>
+                            <div class="product-footer">
+                                <span class="product-price">50 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/aripioare de pui.jpg" alt="Aripioare de Pui">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Aripioare de Pui</h3>
+                            <p class="product-description">Aripi de pui prăjite crocante și gustoase. (100g)</p>
+                            <div class="product-footer">
+                                <span class="product-price">50 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/cartofi pai.avif" alt="Cartofi Pai">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Cartofi Pai</h3>
+                            <p class="product-description">Cartofi prăjiți crocanți și savuroși. (100g)</p>
+                            <div class="product-footer">
+                                <span class="product-price">30 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bauturi Category -->
+            <div class="product-category" data-category="bauturi" id="bauturi">
+                <h2 class="category-title">Băuturi</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/espresso.jpg" alt="Espresso">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Espresso</h3>
+                            <p class="product-description">Cafea espresso din boabe selectate (40ml)</p>
+                            <div class="product-footer">
+                                <span class="product-price">20 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/double espresso.webp" alt="Espresso Dublu" style="object-position: center 60%;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Espresso Dublu</h3>
+                            <p class="product-description">Cafea espresso în porție dublă (80ml)</p>
+                            <div class="product-footer">
+                                <span class="product-price">30 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/Americano.jpeg" alt="Americano" style="object-position: center 50%;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Americano</h3>
+                            <p class="product-description">Cafea americano clasică (150ml)</p>
+                            <div class="product-footer">
+                                <span class="product-price">20 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/Cappucinno.webp" alt="Cappuccino">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Cappuccino</h3>
+                            <p class="product-description">Cappuccino cremos cu spumă de lapte (180ml)</p>
+                            <div class="product-footer">
+                                <span class="product-price">25 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/latte.webp" alt="Latte">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Latte</h3>
+                            <p class="product-description">Cafea latte cu lapte vaporat (200ml)</p>
+                            <div class="product-footer">
+                                <span class="product-price">25 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/tea.webp" alt="Ceai">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Ceai</h3>
+                            <p class="product-description">Ceai aromat în variante diverse (250ml)</p>
+                            <div class="product-footer">
+                                <span class="product-price">15 Lei</span>
+                                <button class="btn btn-small"> <a href="#footer">Comandă</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">Ai ales ce să comanzi?</h2>
+            <p class="cta-text">Sună-ne acum sau vizitează-ne la restaurant!</p>
+            <div class="cta-buttons">
+                <a href="tel:078402001" class="btn btn-primary">Sună: 078402001</a>
+                <a href="contact.html" class="btn btn-white">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <img src="images/logo.jpg" alt="LIV ZONE" class="footer-logo">
+                    <p class="footer-text">Mâncare delicioasă, preparată cu pasiune pentru tine.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Navigare</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Acasă</a></li>
+                        <li><a href="products.html">Produse</a></li>
+                        <li><a href="about.html">Despre Noi</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-info">
+                        <li>📍 Str. Ștefan cel Mare 60</li>
+                        <li>📞 <a href="tel:078402001">078402001</a></li>
+                        <li>🕐 08:00 - 20:00 (zilnic)</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Social Media</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/liv.zone3" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LIV ZONE - COTOROBAI FAMILY S.R.L. Toate drepturile rezervate.</p>
+                <p class="disclaimer">Acest website a fost realizat în cadrul competiției „Tekwill Junior Ambassadors" organizată de proiectul „Tekwill în Fiecare Școală" și nu reflectă neapărat opinia proiectului.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
