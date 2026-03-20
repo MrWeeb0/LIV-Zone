@@ -18,7 +18,7 @@ Clasa: a IX-a
 Mentorat si Apartenenta
 Instituție: Liceul Teoretic Ion Pelivan, Răzeni
 
-Mentor: nadejda Sinițîn 
+Mentor: Nadejda Sinițîn 
 
 # Detalii Tehnice si Implementare
 Site-ul a fost construit folosind tehnologii web standard, punând accent pe scrierea manuală a codului pentru a demonstra competențele tehnice dobândite.
