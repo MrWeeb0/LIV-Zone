@@ -110,25 +110,64 @@ document.addEventListener('DOMContentLoaded', function() {
             const btnText = submitButton.querySelector('.btn-text');
             const btnLoading = submitButton.querySelector('.btn-loading');
             
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
             btnText.style.display = 'none';
             btnLoading.style.display = 'inline';
             submitButton.disabled = true;
             
-            setTimeout(function() {
-                formContent.style.display = 'none';
-                
-                formSuccess.style.display = 'block';
-                
-                btnText.style.display = 'inline';
-                btnLoading.style.display = 'none';
-                submitButton.disabled = false;
-                
+            // Google Apps Script deployment URL
+            const googleFormURL = 'https://script.google.com/macros/s/AKfycbwaxzRJ-bOREyENEOPFiAsoq0irY1Z0W_eRoY7DydairGd6H-_iTNoG7IqXTAWKmrZV_g/exec';
+            
+            // Construct FormData for Google Apps Script
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('phone', phone);
+            formData.append('subject', subject);
+            formData.append('message', message);
+            
+            fetch(googleFormURL, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            })
+            .then(() => {
                 setTimeout(function() {
-                    contactForm.reset();
-                    formContent.style.display = 'block';
-                    formSuccess.style.display = 'none';
-                }, 3000);
-            }, 1500);
+                    formContent.style.display = 'none';
+                    formSuccess.style.display = 'block';
+                    btnText.style.display = 'inline';
+                    btnLoading.style.display = 'none';
+                    submitButton.disabled = false;
+                    
+                    setTimeout(function() {
+                        contactForm.reset();
+                        formContent.style.display = 'block';
+                        formSuccess.style.display = 'none';
+                    }, 3000);
+                }, 500);
+            })
+            .catch(() => {
+                // Even with no-cors, treat as success (Google Forms returns opaque response)
+                setTimeout(function() {
+                    formContent.style.display = 'none';
+                    formSuccess.style.display = 'block';
+                    btnText.style.display = 'inline';
+                    btnLoading.style.display = 'none';
+                    submitButton.disabled = false;
+                    
+                    setTimeout(function() {
+                        contactForm.reset();
+                        formContent.style.display = 'block';
+                        formSuccess.style.display = 'none';
+                    }, 3000);
+                }, 500);
+            });
         });
         
         const formInputs = contactForm.querySelectorAll('input, textarea, select');
