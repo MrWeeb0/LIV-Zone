@@ -97,11 +97,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ===== CONTACT FORM HANDLING =====
+    // ===== CONTACT FORM HANDLING (UPDATED) =====
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
+            // 1. Stop the browser from refreshing the page or altering the URL
             e.preventDefault();
             
             const formContent = document.getElementById('formContent');
@@ -110,63 +111,49 @@ document.addEventListener('DOMContentLoaded', function() {
             const btnText = submitButton.querySelector('.btn-text');
             const btnLoading = submitButton.querySelector('.btn-loading');
             
-            // Get form data
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            btnText.style.display = 'none';
-            btnLoading.style.display = 'inline';
+            // Show loading state
+            if (btnText && btnLoading) {
+                btnText.style.display = 'none';
+                btnLoading.style.display = 'inline';
+            }
             submitButton.disabled = true;
             
-            // Google Apps Script deployment URL
+            // Your Deployment Web App URL
             const googleFormURL = 'https://script.google.com/macros/s/AKfycbwaxzRJ-bOREyENEOPFiAsoq0irY1Z0W_eRoY7DydairGd6H-_iTNoG7IqXTAWKmrZV_g/exec';
             
-            // Construct FormData for Google Apps Script
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('phone', phone);
-            formData.append('subject', subject);
-            formData.append('message', message);
+            // 2. Dynamically extract input names & data directly from the HTML form elements
+            const formData = new FormData(this);
             
+            // 3. Post data out to your Google Sheet deployment
             fetch(googleFormURL, {
                 method: 'POST',
                 body: formData,
-                mode: 'no-cors'
+                mode: 'no-cors' // Allows cross-origin requests to Google Scripts
             })
             .then(() => {
+                // UI update sequence on success
                 setTimeout(function() {
-                    formContent.style.display = 'none';
-                    formSuccess.style.display = 'block';
-                    btnText.style.display = 'inline';
-                    btnLoading.style.display = 'none';
+                    if (formContent) formContent.style.display = 'none';
+                    if (formSuccess) formSuccess.style.display = 'block';
+                    if (btnText) btnText.style.display = 'inline';
+                    if (btnLoading) btnLoading.style.display = 'none';
                     submitButton.disabled = false;
                     
+                    // Reset UI layout back to clean slate after 3 seconds
                     setTimeout(function() {
                         contactForm.reset();
-                        formContent.style.display = 'block';
-                        formSuccess.style.display = 'none';
+                        if (formContent) formContent.style.display = 'block';
+                        if (formSuccess) formSuccess.style.display = 'none';
                     }, 3000);
                 }, 500);
             })
-            .catch(() => {
-                // Even with no-cors, treat as success (Google Forms returns opaque response)
-                setTimeout(function() {
-                    formContent.style.display = 'none';
-                    formSuccess.style.display = 'block';
-                    btnText.style.display = 'inline';
-                    btnLoading.style.display = 'none';
-                    submitButton.disabled = false;
-                    
-                    setTimeout(function() {
-                        contactForm.reset();
-                        formContent.style.display = 'block';
-                        formSuccess.style.display = 'none';
-                    }, 3000);
-                }, 500);
+            .catch((error) => {
+                console.error("Transmission Error: ", error);
+                // Fail-safe UX reset if the actual network transfer is blocked
+                if (btnText) btnText.style.display = 'inline';
+                if (btnLoading) btnLoading.style.display = 'none';
+                submitButton.disabled = false;
+                alert("A apărut o eroare la trimitere. Vă rugăm să încercați din nou.");
             });
         });
         
@@ -261,8 +248,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     animateOnScroll();
     
-
-    
     // ===== NOTIFICATION SYSTEM =====
     function showNotification(message) {
         const notification = document.createElement('div');
@@ -293,25 +278,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideIn {
-            from {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
-        
         @keyframes slideOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(400px);
-                opacity: 0;
-            }
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(400px); opacity: 0; }
         }
     `;
     document.head.appendChild(style);
